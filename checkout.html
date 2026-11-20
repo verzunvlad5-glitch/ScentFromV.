@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Контактні дані, доставка й оплата.">
+  <title>Оформлення замовлення — ScentFromV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,300;1,400;1,500&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/boot.js" defer data-scripts="store,validate,ui,nav,checkout"></script>
+</head>
+<body data-page="checkout">
+  <a class="skip-link" href="#main">До вмісту</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ScentFromV, на головну">Scent<b>From</b>V</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav">Меню</button>
+      <nav class="nav" id="main-nav" aria-label="Основна навігація">
+        <ul>
+          <li><a href="catalog.html">Каталог</a></li><li><a href="favorites.html">Обране<span class="badge" data-badge="fav" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="profile.html">Профіль</a></li><li><a href="cart.html" aria-current="page">Кошик<span class="badge" data-badge="cart" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="contacts.html">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <noscript><style>.nav{display:block!important}.burger{display:none!important}</style><p class="noscript-note">Для роботи кошика, обраного та фільтрів потрібен JavaScript.</p></noscript>
+
+  <main id="main">
+    <div class="container page">
+      <ol class="steps" aria-label="Кроки замовлення">
+        <li>Кошик</li>
+        <li aria-current="step">Оформлення</li>
+        <li>Готово</li>
+      </ol>
+      <h1 class="page-title page-title--spaced">Оформлення замовлення</h1>
+
+      <div id="co-empty" hidden>
+        <div class="empty"><h2>Кошик порожній</h2><p>Щоб оформити замовлення, додайте товари в кошик.</p><a class="btn" href="catalog.html">До каталогу</a></div>
+      </div>
+
+      <form id="checkout-form" novalidate>
+        <div class="split" id="co-content">
+          <div>
+            <section class="panel" aria-labelledby="contact-title">
+              <h2 id="contact-title">Контактні дані</h2>
+              <div class="row-2">
+                <div class="field"><label for="name">Ім’я та прізвище</label><input id="name" name="name" type="text" autocomplete="name" data-rules="required name"></div>
+                <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" placeholder="+380501234567" autocomplete="tel" data-rules="required phone"></div>
+              </div>
+              <div class="row-2">
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" data-rules="required email"></div>
+                <div class="field"><label for="city">Місто</label><input id="city" name="city" type="text" autocomplete="address-level2" data-rules="required min:2"></div>
+              </div>
+            </section>
+
+            <fieldset class="panel">
+              <legend class="sr-only">Доставка</legend>
+              <h2>Доставка</h2>
+              <label class="option"><input type="radio" name="delivery" value="np" checked><span><b>Нова пошта (відділення)</b><small>1–3 дні по Україні</small></span></label>
+              <label class="option"><input type="radio" name="delivery" value="courier"><span><b>Кур’єр по місту</b><small>Київ, у день замовлення до 18:00</small></span></label>
+              <label class="option"><input type="radio" name="delivery" value="pickup"><span><b>Самовивіз із шоуруму</b><small>вул. Прикладна, 1, Київ</small></span></label>
+              <div class="field" id="addr-field">
+                <label for="addr">Відділення або адреса</label>
+                <input id="addr" name="addr" type="text" placeholder="Напр. Відділення №12 або вул. Лесі Українки, 5" data-rules="required min:5">
+              </div>
+            </fieldset>
+
+            <fieldset class="panel">
+              <legend class="sr-only">Оплата</legend>
+              <h2>Оплата</h2>
+              <label class="option"><input type="radio" name="pay" value="card" data-label="Карткою онлайн" checked><span><b>Карткою онлайн</b><small>Навчальний проєкт: реальна оплата не проводиться</small></span></label>
+              <label class="option"><input type="radio" name="pay" value="cod" data-label="При отриманні"><span><b>При отриманні</b><small>Готівкою або карткою у відділенні</small></span></label>
+              <div class="field">
+                <label for="note">Коментар до замовлення</label>
+                <textarea id="note" name="note" placeholder="Необов’язково"></textarea>
+              </div>
+            </fieldset>
+          </div>
+
+          <aside class="panel" id="co-summary" aria-labelledby="co-sum"></aside>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Scent<b>From</b>V</a>
+        <p class="footer-about">Інтернет-магазин оригінальної парфумерії. Нішеві та селективні аромати з доставкою по Україні.</p>
+      </div>
+      <nav aria-label="Магазин">
+        <h2>Магазин</h2>
+        <a href="catalog.html">Каталог</a>
+        <a href="favorites.html">Обране</a>
+        <a href="cart.html">Кошик</a>
+      </nav>
+      <nav aria-label="Допомога">
+        <h2>Допомога</h2>
+        <a href="profile.html">Профіль і замовлення</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="contacts.html#faq">Доставка й повернення</a>
+      </nav>
+      <p class="footer-copy">© 2026 ScentFromV. Навчальний проєкт: товари, ціни й контакти демонстраційні, оплата не проводиться.</p>
+    </div>
+  </footer>
+</body>
+</html>

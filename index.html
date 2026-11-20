@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Оригінальна нішева та селективна парфумерія з доставкою по Україні.">
+  <title>ScentFromV — інтернет-магазин парфумерії</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,300;1,400;1,500&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/boot.js" defer data-scripts="store,validate,ui,nav,home"></script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">До вмісту</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ScentFromV, на головну">Scent<b>From</b>V</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav">Меню</button>
+      <nav class="nav" id="main-nav" aria-label="Основна навігація">
+        <ul>
+          <li><a href="catalog.html">Каталог</a></li><li><a href="favorites.html">Обране<span class="badge" data-badge="fav" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="profile.html">Профіль</a></li><li><a href="cart.html">Кошик<span class="badge" data-badge="cart" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="contacts.html">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <noscript><style>.nav{display:block!important}.burger{display:none!important}</style><p class="noscript-note">Для роботи кошика, обраного та фільтрів потрібен JavaScript.</p></noscript>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div>
+          <p class="eyebrow">Оригінальна парфумерія</p>
+          <h1 id="hero-title">Аромат, що <em>залишається</em> після вас</h1>
+          <p>Нішеві й селективні парфуми з офіційних постачань. Оберіть свій запах у каталозі, додайте в обране й замовте з доставкою по Україні.</p>
+          <div class="hero-actions">
+            <a class="btn" href="catalog.html">До каталогу</a>
+            <a class="btn btn--ghost" href="contacts.html">Допомога з вибором</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <figure><img src="images/gypsy-water.jpg" width="375" height="500" alt="Флакон Gypsy Water"></figure>
+          <figure><img src="images/baccarat-rouge-540.jpg" width="375" height="500" alt="Флакон Baccarat Rouge 540"></figure>
+          <figure><img src="images/replica-jazz-club.jpg" width="332" height="479" alt="Флакон Replica Jazz Club"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="rec-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 id="rec-title">Рекомендовані товари</h2>
+          <form class="search-box" id="home-search" role="search" action="catalog.html" method="get">
+            <label class="sr-only" for="home-q">Пошук за назвою або брендом</label>
+            <input class="input" id="home-q" name="q" type="search" placeholder="Назва або бренд" autocomplete="off">
+            <button class="btn btn--small" type="submit">Пошук</button>
+          </form>
+        </div>
+        <ul class="grid grid--five">
+          <li class="card-item" data-gender="w" data-fam="gourmand">
+            <article class="card">
+              <a class="card-img" href="product-1.html" tabindex="-1"><img src="images/jpg-scandal.jpg" width="375" height="500" alt="Флакон JPG Scandal"></a>
+              <button type="button" class="fav" data-action="fav" data-id="1" aria-pressed="false" aria-label="Додати в обране: JPG Scandal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="1">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Jean Paul Gaultier</p>
+                <h3><a href="product-1.html">JPG Scandal</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">7 000 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="1" aria-label="Купити: JPG Scandal">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="u" data-fam="woody">
+            <article class="card">
+              <a class="card-img" href="product-2.html" tabindex="-1"><img src="images/orto-parisi-terroni.jpg" width="375" height="500" alt="Флакон Orto Parisi Terroni"></a>
+              <button type="button" class="fav" data-action="fav" data-id="2" aria-pressed="false" aria-label="Додати в обране: Orto Parisi Terroni"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="2">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Orto Parisi</p>
+                <h3><a href="product-2.html">Orto Parisi Terroni</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">8 000 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="2" aria-label="Купити: Orto Parisi Terroni">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="m" data-fam="oriental">
+            <article class="card">
+              <a class="card-img" href="product-3.html" tabindex="-1"><img src="images/pdm-layton.jpg" width="444" height="600" alt="Флакон PDM Layton"></a>
+              <button type="button" class="fav" data-action="fav" data-id="3" aria-pressed="false" aria-label="Додати в обране: PDM Layton"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="3">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Parfums de Marly</p>
+                <h3><a href="product-3.html">PDM Layton</a></h3>
+                <p class="ml">125 ml</p>
+                <p class="price">12 399 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="3" aria-label="Купити: PDM Layton">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="u" data-fam="fresh">
+            <article class="card">
+              <a class="card-img" href="product-4.html" tabindex="-1"><img src="images/odecologne-sasha.jpg" width="375" height="500" alt="Флакон Odecologne Sasha"></a>
+              <button type="button" class="fav" data-action="fav" data-id="4" aria-pressed="false" aria-label="Додати в обране: Odecologne Sasha"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="4">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Odecologne</p>
+                <h3><a href="product-4.html">Odecologne Sasha</a></h3>
+                <p class="ml">100 ml</p>
+                <p class="price">1 234 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="4" aria-label="Купити: Odecologne Sasha">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="m" data-fam="fresh">
+            <article class="card">
+              <a class="card-img" href="product-5.html" tabindex="-1"><img src="images/ysl-y.jpg" width="640" height="640" alt="Флакон YSL Y"></a>
+              <button type="button" class="fav" data-action="fav" data-id="5" aria-pressed="false" aria-label="Додати в обране: YSL Y"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="5">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Yves Saint Laurent</p>
+                <h3><a href="product-5.html">YSL Y</a></h3>
+                <p class="ml">60 ml</p>
+                <p class="price">4 000 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="5" aria-label="Купити: YSL Y">Купити</button>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <p class="more"><a class="btn btn--ghost" href="catalog.html">Дивитися весь каталог</a></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="coll-title">
+      <div class="container">
+        <div class="section-head"><h2 id="coll-title">Групи ароматів</h2></div>
+        <ul class="collections">
+          <li><a class="collection" href="catalog.html?fam=fresh"><b>Свіжі</b><span>3 аромати →</span></a></li><li><a class="collection" href="catalog.html?fam=floral"><b>Квіткові</b><span>2 аромати →</span></a></li><li><a class="collection" href="catalog.html?fam=woody"><b>Деревні</b><span>5 ароматів →</span></a></li><li><a class="collection" href="catalog.html?fam=oriental"><b>Східні</b><span>4 аромати →</span></a></li><li><a class="collection" href="catalog.html?fam=gourmand"><b>Гурманські</b><span>2 аромати →</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="container" aria-label="Переваги магазину">
+      <div class="benefits">
+        <article class="benefit"><h3>Тільки оригінал</h3><p>Працюємо з офіційними постачальниками й надаємо документи на товар.</p></article>
+        <article class="benefit"><h3>Доставка по Україні</h3><p>Нова пошта та кур’єр. Безкоштовно від 5&nbsp;000&nbsp;грн.</p></article>
+        <article class="benefit"><h3>Повернення 14 днів</h3><p>Якщо флакон не розпечатаний, повернемо кошти без зайвих питань.</p></article>
+        <article class="benefit"><h3>Допомога з вибором</h3><p>Підкажемо аромат за вашими вподобаннями. Напишіть нам у контактах.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Scent<b>From</b>V</a>
+        <p class="footer-about">Інтернет-магазин оригінальної парфумерії. Нішеві та селективні аромати з доставкою по Україні.</p>
+      </div>
+      <nav aria-label="Магазин">
+        <h2>Магазин</h2>
+        <a href="catalog.html">Каталог</a>
+        <a href="favorites.html">Обране</a>
+        <a href="cart.html">Кошик</a>
+      </nav>
+      <nav aria-label="Допомога">
+        <h2>Допомога</h2>
+        <a href="profile.html">Профіль і замовлення</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="contacts.html#faq">Доставка й повернення</a>
+      </nav>
+      <p class="footer-copy">© 2026 ScentFromV. Навчальний проєкт: товари, ціни й контакти демонстраційні, оплата не проводиться.</p>
+    </div>
+  </footer>
+</body>
+</html>

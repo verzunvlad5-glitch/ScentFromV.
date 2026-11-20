@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Телефон, адреса, графік роботи та форма зв’язку.">
+  <title>Контакти — ScentFromV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,300;1,400;1,500&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/boot.js" defer data-scripts="store,validate,ui,nav,contacts"></script>
+</head>
+<body data-page="contacts">
+  <a class="skip-link" href="#main">До вмісту</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ScentFromV, на головну">Scent<b>From</b>V</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav">Меню</button>
+      <nav class="nav" id="main-nav" aria-label="Основна навігація">
+        <ul>
+          <li><a href="catalog.html">Каталог</a></li><li><a href="favorites.html">Обране<span class="badge" data-badge="fav" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="profile.html">Профіль</a></li><li><a href="cart.html">Кошик<span class="badge" data-badge="cart" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="contacts.html" aria-current="page">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <noscript><style>.nav{display:block!important}.burger{display:none!important}</style><p class="noscript-note">Для роботи кошика, обраного та фільтрів потрібен JavaScript.</p></noscript>
+
+  <main id="main">
+    <div class="container page">
+      <h1 class="page-title">Контакти</h1>
+      <p class="lede lede--spaced">Підкажемо з вибором аромату, статусом замовлення й обміном.</p>
+      <div class="two-col">
+        <div>
+          <address>
+            <dl class="contact-info">
+              <div><dt>Телефон</dt><dd><a href="tel:+380440000000">+380 44 000 00 00</a></dd></div>
+              <div><dt>Email</dt><dd><a href="mailto:hello@scentfromv.example">hello@scentfromv.example</a></dd></div>
+              <div><dt>Шоурум</dt><dd>м. Київ, вул. Прикладна, 1</dd></div>
+              <div><dt>Графік</dt><dd>Пн–Пт 10:00–19:00, Сб 11:00–17:00</dd></div>
+            </dl>
+          </address>
+
+          <section id="faq" aria-labelledby="faq-title">
+            <h2 class="subheading" id="faq-title">Питання й відповіді</h2>
+            <details class="faq"><summary>Як швидко доставляєте?</summary><p>Нова пошта: 1–3 дні по Україні. Кур’єр по Києву: у день замовлення, якщо оформили до 18:00.</p></details>
+            <details class="faq"><summary>Чи можна повернути парфуми?</summary><p>Так, протягом 14 днів, якщо флакон не розпечатаний і збережена упаковка.</p></details>
+            <details class="faq"><summary>Як перевірити оригінальність?</summary><p>Ми працюємо з офіційними постачальниками й надамо документи на запит.</p></details>
+          </section>
+        </div>
+
+        <section class="panel" aria-labelledby="write-title">
+          <h2 id="write-title">Написати нам</h2>
+          <form id="contact-form" novalidate>
+            <div class="field"><label for="c-name">Ім’я</label><input id="c-name" name="name" type="text" autocomplete="name" data-rules="required name"></div>
+            <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" data-rules="required email"></div>
+            <div class="field">
+              <label for="c-topic">Тема звернення</label>
+              <select id="c-topic" name="topic" data-rules="required">
+                <option value="">Оберіть тему</option>
+                <option>Допомога з вибором аромату</option>
+                <option>Статус замовлення</option>
+                <option>Повернення й обмін</option>
+                <option>Інше</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="c-msg">Повідомлення</label>
+              <textarea id="c-msg" name="message" maxlength="500" data-rules="required min:10"></textarea>
+              <p class="hint counter" id="c-count">0 / 500</p>
+            </div>
+            <button class="btn btn--block" type="submit">Надіслати</button>
+          </form>
+          <div class="contact-success" id="contact-success" tabindex="-1" hidden>
+            <h2>Дякуємо, <span id="c-who"></span>!</h2>
+            <p class="lede">Звернення прийнято й збережене. Ми відповімо на вказаний email.</p>
+            <button class="btn btn--ghost" type="button" id="c-again">Написати ще</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Scent<b>From</b>V</a>
+        <p class="footer-about">Інтернет-магазин оригінальної парфумерії. Нішеві та селективні аромати з доставкою по Україні.</p>
+      </div>
+      <nav aria-label="Магазин">
+        <h2>Магазин</h2>
+        <a href="catalog.html">Каталог</a>
+        <a href="favorites.html">Обране</a>
+        <a href="cart.html">Кошик</a>
+      </nav>
+      <nav aria-label="Допомога">
+        <h2>Допомога</h2>
+        <a href="profile.html">Профіль і замовлення</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="contacts.html#faq">Доставка й повернення</a>
+      </nav>
+      <p class="footer-copy">© 2026 ScentFromV. Навчальний проєкт: товари, ціни й контакти демонстраційні, оплата не проводиться.</p>
+    </div>
+  </footer>
+</body>
+</html>

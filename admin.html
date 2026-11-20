@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Керування каталогом і зверненнями.">
+  <meta name="robots" content="noindex">
+  <title>Адміністрування — ScentFromV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,300;1,400;1,500&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/boot.js" defer data-scripts="store,validate,ui,nav,admin"></script>
+</head>
+<body data-page="admin">
+  <a class="skip-link" href="#main">До вмісту</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ScentFromV, на головну">Scent<b>From</b>V</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav">Меню</button>
+      <nav class="nav" id="main-nav" aria-label="Основна навігація">
+        <ul>
+          <li><a href="catalog.html">Каталог</a></li><li><a href="favorites.html">Обране<span class="badge" data-badge="fav" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="profile.html">Профіль</a></li><li><a href="cart.html">Кошик<span class="badge" data-badge="cart" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="contacts.html">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <noscript><style>.nav{display:block!important}.burger{display:none!important}</style><p class="noscript-note">Для роботи кошика, обраного та фільтрів потрібен JavaScript.</p></noscript>
+
+  <main id="main">
+    <div class="container page">
+      <h1 class="page-title">Адміністрування</h1>
+      <p class="lede lede--spaced">Керування каталогом (CRUD) і перегляд звернень. Потрібен токен адміністратора (змінна середовища ADMIN_TOKEN).</p>
+      <form id="admin-login" class="panel" novalidate>
+        <div class="field"><label for="ad-token">Токен адміністратора</label><input id="ad-token" type="password" autocomplete="off"></div>
+        <button class="btn" type="submit">Увійти</button>
+        <p class="form-status form-status--error" id="ad-status" role="alert" hidden></p>
+      </form>
+      <div id="admin-app" hidden>
+        <section class="panel" aria-labelledby="ad-form-title">
+          <h2 id="ad-form-title">Новий товар</h2>
+          <form id="product-form" novalidate>
+            <input type="hidden" name="id">
+            <div class="field"><label for="p-brand">Бренд</label><input id="p-brand" name="brand" type="text"></div>
+            <div class="field"><label for="p-title">Назва</label><input id="p-title" name="title" type="text"></div>
+            <div class="field"><label for="p-ml">Об’єм, мл</label><input id="p-ml" name="ml" type="number" min="1" value="50"></div>
+            <div class="field"><label for="p-price">Ціна, грн</label><input id="p-price" name="price" type="number" min="1"></div>
+            <div class="field"><label for="p-gender">Стать</label><select id="p-gender" name="gender"><option value="w">Жіночі</option><option value="m">Чоловічі</option><option value="u">Унісекс</option></select></div>
+            <div class="field"><label for="p-fam">Група аромату</label><select id="p-fam" name="fam"><option value="fresh">Свіжі</option><option value="floral">Квіткові</option><option value="woody">Деревні</option><option value="oriental">Східні</option><option value="gourmand">Гурманські</option></select></div>
+            <div class="field"><label for="p-img">Зображення</label><input id="p-img" name="img" type="text" placeholder="images/name.jpg"></div>
+            <div class="field"><label for="p-desc">Опис</label><textarea id="p-desc" name="desc" maxlength="600"></textarea></div>
+            <button class="btn" type="submit">Зберегти</button>
+            <button class="btn btn--ghost" type="button" id="p-cancel" hidden>Скасувати редагування</button>
+          </form>
+        </section>
+        <h2 class="subheading">Товари</h2>
+        <div id="admin-products"></div>
+        <h2 class="subheading">Звернення з форми «Контакти»</h2>
+        <div id="admin-messages"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Scent<b>From</b>V</a>
+        <p class="footer-about">Інтернет-магазин оригінальної парфумерії. Нішеві та селективні аромати з доставкою по Україні.</p>
+      </div>
+      <nav aria-label="Магазин">
+        <h2>Магазин</h2>
+        <a href="catalog.html">Каталог</a>
+        <a href="favorites.html">Обране</a>
+        <a href="cart.html">Кошик</a>
+      </nav>
+      <nav aria-label="Допомога">
+        <h2>Допомога</h2>
+        <a href="profile.html">Профіль і замовлення</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="contacts.html#faq">Доставка й повернення</a>
+      </nav>
+      <p class="footer-copy">© 2026 ScentFromV. Навчальний проєкт: товари, ціни й контакти демонстраційні, оплата не проводиться.</p>
+    </div>
+  </footer>
+</body>
+</html>

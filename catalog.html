@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Каталог парфумів: пошук, фільтри й сортування.">
+  <title>Каталог — ScentFromV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,300;1,400;1,500&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/boot.js" defer data-scripts="store,validate,ui,nav,catalog"></script>
+</head>
+<body data-page="catalog">
+  <a class="skip-link" href="#main">До вмісту</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ScentFromV, на головну">Scent<b>From</b>V</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav">Меню</button>
+      <nav class="nav" id="main-nav" aria-label="Основна навігація">
+        <ul>
+          <li><a href="catalog.html" aria-current="page">Каталог</a></li><li><a href="favorites.html">Обране<span class="badge" data-badge="fav" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="profile.html">Профіль</a></li><li><a href="cart.html">Кошик<span class="badge" data-badge="cart" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="contacts.html">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <noscript><style>.nav{display:block!important}.burger{display:none!important}</style><p class="noscript-note">Для роботи кошика, обраного та фільтрів потрібен JavaScript.</p></noscript>
+
+  <main id="main">
+    <div class="container page">
+      <h1 class="page-title">Каталог</h1>
+      <p class="lede">Шукайте за назвою чи брендом, фільтруйте за статтю, групою й ціною. Результат змінюється одразу.</p>
+
+      <div class="catalog catalog--top">
+        <aside class="filters" id="filters" aria-label="Фільтри">
+          <button class="btn btn--ghost btn--small filters-toggle" id="filters-toggle" type="button" aria-expanded="false" aria-controls="filters-body">Фільтри</button>
+          <div class="filters-body" id="filters-body">
+            <form id="filters-form">
+              <div class="field">
+                <label for="f-q">Пошук</label>
+                <input id="f-q" name="q" type="search" placeholder="Назва або бренд" autocomplete="off">
+              </div>
+              <fieldset>
+                <legend class="legend">Для кого</legend>
+                <label class="check"><input type="checkbox" name="gender" value="w"> Жіночі</label>
+                <label class="check"><input type="checkbox" name="gender" value="m"> Чоловічі</label>
+                <label class="check"><input type="checkbox" name="gender" value="u"> Унісекс</label>
+              </fieldset>
+              <fieldset>
+                <legend class="legend">Група аромату</legend>
+                <label class="check"><input type="checkbox" name="fam" value="fresh"> Свіжі</label>
+                <label class="check"><input type="checkbox" name="fam" value="floral"> Квіткові</label>
+                <label class="check"><input type="checkbox" name="fam" value="woody"> Деревні</label>
+                <label class="check"><input type="checkbox" name="fam" value="oriental"> Східні</label>
+                <label class="check"><input type="checkbox" name="fam" value="gourmand"> Гурманські</label>
+              </fieldset>
+              <fieldset>
+                <legend class="legend">Бренд</legend>
+                <div class="check-list">
+                <label class="check"><input type="checkbox" name="brand" value="Byredo"> Byredo</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Chanel"> Chanel</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Creed"> Creed</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Dior"> Dior</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Giorgio Armani"> Giorgio Armani</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Jean Paul Gaultier"> Jean Paul Gaultier</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Lancôme"> Lancôme</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Le Labo"> Le Labo</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Maison Francis Kurkdjian"> Maison Francis Kurkdjian</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Maison Margiela"> Maison Margiela</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Odecologne"> Odecologne</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Orto Parisi"> Orto Parisi</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Parfums de Marly"> Parfums de Marly</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Tom Ford"> Tom Ford</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Viktor&amp;Rolf"> Viktor&amp;Rolf</label>
+                  <label class="check"><input type="checkbox" name="brand" value="Yves Saint Laurent"> Yves Saint Laurent</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend class="legend"><label for="f-max">Ціна до</label></legend>
+                <input id="f-max" name="max" type="range" min="1000" max="16000" step="500" value="16000">
+                <p class="range-out"><span>1&nbsp;000&nbsp;грн</span><output id="f-max-out" for="f-max">16 000 грн</output></p>
+              </fieldset>
+              <button class="btn btn--ghost btn--small btn--block" type="button" data-action="reset-filters">Скинути фільтри</button>
+            </form>
+          </div>
+        </aside>
+
+        <section aria-labelledby="res-title">
+          <h2 class="sr-only" id="res-title">Список товарів</h2>
+          <div class="toolbar">
+            <p class="hint" id="count" aria-live="polite">Знайдено: 16 ароматів</p>
+            <div class="sort-box">
+              <label class="hint" for="f-sort">Сортування</label>
+              <select id="f-sort" name="sort" form="filters-form">
+                <option value="rec">За рекомендаціями</option>
+                <option value="asc">Спочатку дешевші</option>
+                <option value="desc">Спочатку дорожчі</option>
+                <option value="az">За назвою</option>
+              </select>
+            </div>
+          </div>
+          <div class="chips" id="chips" aria-label="Активні фільтри" hidden></div>
+          <div id="grid">
+            <ul class="grid">
+          <li class="card-item" data-gender="w" data-fam="gourmand">
+            <article class="card">
+              <a class="card-img" href="product-1.html" tabindex="-1"><img src="images/jpg-scandal.jpg" width="375" height="500" alt="Флакон JPG Scandal"></a>
+              <button type="button" class="fav" data-action="fav" data-id="1" aria-pressed="false" aria-label="Додати в обране: JPG Scandal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="1">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Jean Paul Gaultier</p>
+                <h3><a href="product-1.html">JPG Scandal</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">7 000 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="1" aria-label="Купити: JPG Scandal">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="u" data-fam="woody">
+            <article class="card">
+              <a class="card-img" href="product-2.html" tabindex="-1"><img src="images/orto-parisi-terroni.jpg" width="375" height="500" alt="Флакон Orto Parisi Terroni"></a>
+              <button type="button" class="fav" data-action="fav" data-id="2" aria-pressed="false" aria-label="Додати в обране: Orto Parisi Terroni"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="2">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Orto Parisi</p>
+                <h3><a href="product-2.html">Orto Parisi Terroni</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">8 000 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="2" aria-label="Купити: Orto Parisi Terroni">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="m" data-fam="oriental">
+            <article class="card">
+              <a class="card-img" href="product-3.html" tabindex="-1"><img src="images/pdm-layton.jpg" width="444" height="600" alt="Флакон PDM Layton"></a>
+              <button type="button" class="fav" data-action="fav" data-id="3" aria-pressed="false" aria-label="Додати в обране: PDM Layton"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="3">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Parfums de Marly</p>
+                <h3><a href="product-3.html">PDM Layton</a></h3>
+                <p class="ml">125 ml</p>
+                <p class="price">12 399 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="3" aria-label="Купити: PDM Layton">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="u" data-fam="fresh">
+            <article class="card">
+              <a class="card-img" href="product-4.html" tabindex="-1"><img src="images/odecologne-sasha.jpg" width="375" height="500" alt="Флакон Odecologne Sasha"></a>
+              <button type="button" class="fav" data-action="fav" data-id="4" aria-pressed="false" aria-label="Додати в обране: Odecologne Sasha"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="4">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Odecologne</p>
+                <h3><a href="product-4.html">Odecologne Sasha</a></h3>
+                <p class="ml">100 ml</p>
+                <p class="price">1 234 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="4" aria-label="Купити: Odecologne Sasha">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="m" data-fam="fresh">
+            <article class="card">
+              <a class="card-img" href="product-5.html" tabindex="-1"><img src="images/ysl-y.jpg" width="640" height="640" alt="Флакон YSL Y"></a>
+              <button type="button" class="fav" data-action="fav" data-id="5" aria-pressed="false" aria-label="Додати в обране: YSL Y"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="5">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Yves Saint Laurent</p>
+                <h3><a href="product-5.html">YSL Y</a></h3>
+                <p class="ml">60 ml</p>
+                <p class="price">4 000 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="5" aria-label="Купити: YSL Y">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="m" data-fam="fresh">
+            <article class="card">
+              <a class="card-img" href="product-6.html" tabindex="-1"><img src="images/dior-sauvage.jpg" width="640" height="640" alt="Флакон Dior Sauvage"></a>
+              <button type="button" class="fav" data-action="fav" data-id="6" aria-pressed="false" aria-label="Додати в обране: Dior Sauvage"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="6">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Dior</p>
+                <h3><a href="product-6.html">Dior Sauvage</a></h3>
+                <p class="ml">100 ml</p>
+                <p class="price">5 400 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="6" aria-label="Купити: Dior Sauvage">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="m" data-fam="woody">
+            <article class="card">
+              <a class="card-img" href="product-7.html" tabindex="-1"><img src="images/bleu-de-chanel.jpg" width="640" height="640" alt="Флакон Bleu de Chanel"></a>
+              <button type="button" class="fav" data-action="fav" data-id="7" aria-pressed="false" aria-label="Додати в обране: Bleu de Chanel"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="7">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Chanel</p>
+                <h3><a href="product-7.html">Bleu de Chanel</a></h3>
+                <p class="ml">100 ml</p>
+                <p class="price">6 200 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="7" aria-label="Купити: Bleu de Chanel">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="m" data-fam="woody">
+            <article class="card">
+              <a class="card-img card-img--cover" href="product-8.html" tabindex="-1"><img src="images/creed-aventus.jpg" width="533" height="375" alt="Флакон Creed Aventus"></a>
+              <button type="button" class="fav" data-action="fav" data-id="8" aria-pressed="false" aria-label="Додати в обране: Creed Aventus"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="8">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Creed</p>
+                <h3><a href="product-8.html">Creed Aventus</a></h3>
+                <p class="ml">100 ml</p>
+                <p class="price">15 800 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="8" aria-label="Купити: Creed Aventus">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="u" data-fam="oriental">
+            <article class="card">
+              <a class="card-img" href="product-9.html" tabindex="-1"><img src="images/baccarat-rouge-540.jpg" width="375" height="500" alt="Флакон Baccarat Rouge 540"></a>
+              <button type="button" class="fav" data-action="fav" data-id="9" aria-pressed="false" aria-label="Додати в обране: Baccarat Rouge 540"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="9">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Maison Francis Kurkdjian</p>
+                <h3><a href="product-9.html">Baccarat Rouge 540</a></h3>
+                <p class="ml">70 ml</p>
+                <p class="price">11 900 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="9" aria-label="Купити: Baccarat Rouge 540">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="u" data-fam="oriental">
+            <article class="card">
+              <a class="card-img card-img--cover" href="product-10.html" tabindex="-1"><img src="images/black-orchid.jpg" width="561" height="760" alt="Флакон Black Orchid"></a>
+              <button type="button" class="fav" data-action="fav" data-id="10" aria-pressed="false" aria-label="Додати в обране: Black Orchid"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="10">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Tom Ford</p>
+                <h3><a href="product-10.html">Black Orchid</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">5 200 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="10" aria-label="Купити: Black Orchid">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="u" data-fam="woody">
+            <article class="card">
+              <a class="card-img" href="product-11.html" tabindex="-1"><img src="images/gypsy-water.jpg" width="375" height="500" alt="Флакон Gypsy Water"></a>
+              <button type="button" class="fav" data-action="fav" data-id="11" aria-pressed="false" aria-label="Додати в обране: Gypsy Water"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="11">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Byredo</p>
+                <h3><a href="product-11.html">Gypsy Water</a></h3>
+                <p class="ml">100 ml</p>
+                <p class="price">7 900 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="11" aria-label="Купити: Gypsy Water">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="u" data-fam="woody">
+            <article class="card">
+              <a class="card-img" href="product-12.html" tabindex="-1"><img src="images/santal-33.jpg" width="608" height="760" alt="Флакон Santal 33"></a>
+              <button type="button" class="fav" data-action="fav" data-id="12" aria-pressed="false" aria-label="Додати в обране: Santal 33"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="12">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Le Labo</p>
+                <h3><a href="product-12.html">Santal 33</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">9 800 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="12" aria-label="Купити: Santal 33">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="w" data-fam="gourmand">
+            <article class="card">
+              <a class="card-img" href="product-13.html" tabindex="-1"><img src="images/la-vie-est-belle.jpg" width="375" height="500" alt="Флакон La Vie Est Belle"></a>
+              <button type="button" class="fav" data-action="fav" data-id="13" aria-pressed="false" aria-label="Додати в обране: La Vie Est Belle"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="13">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Lancôme</p>
+                <h3><a href="product-13.html">La Vie Est Belle</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">3 900 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="13" aria-label="Купити: La Vie Est Belle">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="w" data-fam="floral">
+            <article class="card">
+              <a class="card-img" href="product-14.html" tabindex="-1"><img src="images/armani-si.jpg" width="341" height="511" alt="Флакон Armani Sì"></a>
+              <button type="button" class="fav" data-action="fav" data-id="14" aria-pressed="false" aria-label="Додати в обране: Armani Sì"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="14">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Giorgio Armani</p>
+                <h3><a href="product-14.html">Armani Sì</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">3 700 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="14" aria-label="Купити: Armani Sì">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="m" data-fam="oriental">
+            <article class="card">
+              <a class="card-img" href="product-15.html" tabindex="-1"><img src="images/replica-jazz-club.jpg" width="332" height="479" alt="Флакон Replica Jazz Club"></a>
+              <button type="button" class="fav" data-action="fav" data-id="15" aria-pressed="false" aria-label="Додати в обране: Replica Jazz Club"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="15">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Maison Margiela</p>
+                <h3><a href="product-15.html">Replica Jazz Club</a></h3>
+                <p class="ml">100 ml</p>
+                <p class="price">5 100 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="15" aria-label="Купити: Replica Jazz Club">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="w" data-fam="floral">
+            <article class="card">
+              <a class="card-img" href="product-16.html" tabindex="-1"><img src="images/flowerbomb.jpg" width="500" height="626" alt="Флакон Flowerbomb"></a>
+              <button type="button" class="fav" data-action="fav" data-id="16" aria-pressed="false" aria-label="Додати в обране: Flowerbomb"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="16">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Viktor&amp;Rolf</p>
+                <h3><a href="product-16.html">Flowerbomb</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">4 300 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="16" aria-label="Купити: Flowerbomb">Купити</button>
+              </div>
+            </article>
+          </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Scent<b>From</b>V</a>
+        <p class="footer-about">Інтернет-магазин оригінальної парфумерії. Нішеві та селективні аромати з доставкою по Україні.</p>
+      </div>
+      <nav aria-label="Магазин">
+        <h2>Магазин</h2>
+        <a href="catalog.html">Каталог</a>
+        <a href="favorites.html">Обране</a>
+        <a href="cart.html">Кошик</a>
+      </nav>
+      <nav aria-label="Допомога">
+        <h2>Допомога</h2>
+        <a href="profile.html">Профіль і замовлення</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="contacts.html#faq">Доставка й повернення</a>
+      </nav>
+      <p class="footer-copy">© 2026 ScentFromV. Навчальний проєкт: товари, ціни й контакти демонстраційні, оплата не проводиться.</p>
+    </div>
+  </footer>
+</body>
+</html>

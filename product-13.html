@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="La Vie Est Belle, 50 ml: Солодкий і світлий аромат з ірисом і праліне. Затишний і життєрадісний.">
+  <title>La Vie Est Belle — ScentFromV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,300;1,400;1,500&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/boot.js" defer data-scripts="store,validate,ui,nav,product"></script>
+</head>
+<body data-page="product">
+  <a class="skip-link" href="#main">До вмісту</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ScentFromV, на головну">Scent<b>From</b>V</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav">Меню</button>
+      <nav class="nav" id="main-nav" aria-label="Основна навігація">
+        <ul>
+          <li><a href="catalog.html" aria-current="page">Каталог</a></li><li><a href="favorites.html">Обране<span class="badge" data-badge="fav" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="profile.html">Профіль</a></li><li><a href="cart.html">Кошик<span class="badge" data-badge="cart" hidden><span data-count>0</span><span class="sr-only"> товарів</span></span></a></li><li><a href="contacts.html">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <noscript><style>.nav{display:block!important}.burger{display:none!important}</style><p class="noscript-note">Для роботи кошика, обраного та фільтрів потрібен JavaScript.</p></noscript>
+
+  <main id="main">
+    <div class="container page">
+      <nav class="breadcrumbs" aria-label="Хлібні крихти">
+        <ol>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li aria-current="page">La Vie Est Belle</li>
+        </ol>
+      </nav>
+
+      <article class="pdp" data-id="13">
+        <figure class="photo"><img src="images/la-vie-est-belle.jpg" width="375" height="500" alt="Флакон La Vie Est Belle"></figure>
+        <div>
+          <p class="brand">Lancôme</p>
+          <h1>La Vie Est Belle</h1>
+          <ul class="tags" aria-label="Характеристики">
+            <li class="tag">50 ml</li>
+            <li class="tag">Жіночі</li>
+            <li class="tag">Гурманські</li>
+          </ul>
+          <p class="lede">Солодкий і світлий аромат з ірисом і праліне. Затишний і життєрадісний.</p>
+          <p class="price">3 900 грн</p>
+          <dl class="notes">
+            <div><dt>Верхні ноти</dt><dd>Чорна смородина, груша</dd></div>
+            <div><dt>Серце</dt><dd>Ірис</dd></div>
+            <div><dt>База</dt><dd>Ваніль, праліне</dd></div>
+          </dl>
+          <div class="buy-row">
+            <div class="stepper">
+              <button type="button" data-action="step" data-step="-1" data-target="#qty" aria-label="Менше">−</button>
+              <input id="qty" type="number" min="1" max="10" value="1" inputmode="numeric" aria-label="Кількість">
+              <button type="button" data-action="step" data-step="1" data-target="#qty" aria-label="Більше">+</button>
+            </div>
+            <button class="btn" type="button" data-action="add" data-id="13" data-qty-from="#qty">Додати в кошик</button>
+            <button class="btn btn--ghost" type="button" data-action="fav" data-id="13" data-fav-text aria-pressed="false">В обране</button>
+          </div>
+          <ul class="perks">
+            <li>✓ Оригінальна продукція</li>
+            <li>✓ Безкоштовна доставка від 5&nbsp;000&nbsp;грн</li>
+            <li>✓ Повернення протягом 14 днів</li>
+          </ul>
+        </div>
+      </article>
+
+      <section class="section section--flush" aria-labelledby="sim-title">
+        <div class="section-head"><h2 id="sim-title">Схожі аромати</h2></div>
+        <ul class="grid">
+          <li class="card-item" data-gender="w" data-fam="gourmand">
+            <article class="card">
+              <a class="card-img" href="product-1.html" tabindex="-1"><img src="images/jpg-scandal.jpg" width="375" height="500" alt="Флакон JPG Scandal"></a>
+              <button type="button" class="fav" data-action="fav" data-id="1" aria-pressed="false" aria-label="Додати в обране: JPG Scandal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="1">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Jean Paul Gaultier</p>
+                <h3><a href="product-1.html">JPG Scandal</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">7 000 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="1" aria-label="Купити: JPG Scandal">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="w" data-fam="floral">
+            <article class="card">
+              <a class="card-img" href="product-14.html" tabindex="-1"><img src="images/armani-si.jpg" width="341" height="511" alt="Флакон Armani Sì"></a>
+              <button type="button" class="fav" data-action="fav" data-id="14" aria-pressed="false" aria-label="Додати в обране: Armani Sì"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="14">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Giorgio Armani</p>
+                <h3><a href="product-14.html">Armani Sì</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">3 700 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="14" aria-label="Купити: Armani Sì">Купити</button>
+              </div>
+            </article>
+          </li>
+<li class="card-item" data-gender="w" data-fam="floral">
+            <article class="card">
+              <a class="card-img" href="product-16.html" tabindex="-1"><img src="images/flowerbomb.jpg" width="500" height="626" alt="Флакон Flowerbomb"></a>
+              <button type="button" class="fav" data-action="fav" data-id="16" aria-pressed="false" aria-label="Додати в обране: Flowerbomb"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+              <button type="button" class="quick" data-action="quick" data-id="16">Швидкий перегляд</button>
+              <div class="card-body">
+                <p class="brand">Viktor&amp;Rolf</p>
+                <h3><a href="product-16.html">Flowerbomb</a></h3>
+                <p class="ml">50 ml</p>
+                <p class="price">4 300 грн</p>
+                <button type="button" class="buy" data-action="add" data-id="16" aria-label="Купити: Flowerbomb">Купити</button>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section section--flush" id="recent" aria-labelledby="recent-title" hidden>
+        <div class="section-head"><h2 id="recent-title">Ви переглядали</h2></div>
+        <ul class="grid"></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Scent<b>From</b>V</a>
+        <p class="footer-about">Інтернет-магазин оригінальної парфумерії. Нішеві та селективні аромати з доставкою по Україні.</p>
+      </div>
+      <nav aria-label="Магазин">
+        <h2>Магазин</h2>
+        <a href="catalog.html">Каталог</a>
+        <a href="favorites.html">Обране</a>
+        <a href="cart.html">Кошик</a>
+      </nav>
+      <nav aria-label="Допомога">
+        <h2>Допомога</h2>
+        <a href="profile.html">Профіль і замовлення</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="contacts.html#faq">Доставка й повернення</a>
+      </nav>
+      <p class="footer-copy">© 2026 ScentFromV. Навчальний проєкт: товари, ціни й контакти демонстраційні, оплата не проводиться.</p>
+    </div>
+  </footer>
+</body>
+</html>

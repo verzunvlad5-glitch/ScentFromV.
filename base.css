@@ -1,0 +1,188 @@
+/* ==========================================================
+   base.css — дизайн-токени, скидання стилів, типографіка
+   Підключається першим: решта файлів використовують ці змінні
+   ========================================================== */
+
+:root {
+  /* Кольори (світла тема) */
+  --bg: #f7f3f1;
+  --surface: #ffffff;
+  --tile: #f3eae8;
+  --shot: #f3eae8;
+  --shot-rich: #e9cfcb;
+  --fg: #1c1a19;
+  --muted: #6a605d;
+  --line: #ddd3d0;
+  --bar: #1c1a19;
+  --bar-fg: #f4efec;
+  --btn: #9b1118;
+  --btn-fg: #ffffff;
+  --accent: #9b1118;
+  --ok: #2f7d4f;
+  --focus: #1f5fd1;
+  --shadow: 0 10px 30px rgba(28, 26, 25, 0.08);
+
+  /* Типографіка */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Відступи та радіуси */
+  --radius: 6px;
+  --gap: 24px;
+  --container: 1240px;
+}
+
+/* Темна тема: перевизначаємо лише значення змінних */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151312;
+    --surface: #1f1c1b;
+    --tile: #2c2625;
+    --fg: #f2ece9;
+    --muted: #a99f9b;
+    --line: #37312f;
+    --bar: #0d0c0b;
+    --btn: #b3202a;
+    --accent: #ff7f85;
+    --ok: #6cc58e;
+    --focus: #7aa8ff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
+
+/* Скидання */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Атрибут hidden має діяти навіть на елементах із власним display (grid, flex) */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Допоміжні класи */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 100;
+  padding: 8px 14px;
+  background: var(--btn);
+  color: var(--btn-fg);
+}
+
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
+}
+
+/* Типографічна шкала */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.page-title {
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.lede {
+  max-width: 60ch;
+  color: var(--muted);
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

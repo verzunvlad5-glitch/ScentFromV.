@@ -1,0 +1,16 @@
+# Blueprint для Render.com: «New → Blueprint» і вказати репозиторій
+services:
+  - type: web
+    name: scentfromv
+    runtime: node
+    plan: free
+    buildCommand: "echo no build step"
+    startCommand: "npm start"
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: DB_FILE
+        value: /tmp/scentfromv.db   # безкоштовний тариф не має постійного диска: дані зникають при перезапуску

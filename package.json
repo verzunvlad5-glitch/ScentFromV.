@@ -1,0 +1,12 @@
+{
+  "name": "scentfromv",
+  "version": "1.0.0",
+  "description": "ScentFromV — навчальний інтернет-магазин парфумерії (лабораторна робота № 5)",
+  "private": true,
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server/index.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.js"
+  },
+  "license": "UNLICENSED"
+}

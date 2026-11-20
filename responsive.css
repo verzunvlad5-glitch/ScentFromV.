@@ -1,0 +1,180 @@
+/* ==========================================================
+   responsive.css — адаптивність (підхід desktop-first).
+   Точки зупину: 1100px (малий ноутбук), 900px (планшет),
+   640px (телефон)
+   ========================================================== */
+
+@media (max-width: 1100px) {
+  .grid--five {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .collections {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .benefits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Планшет ---------- */
+@media (max-width: 900px) {
+  /* Меню згортається у кнопку; JavaScript додає клас .is-open */
+  .burger {
+    display: inline-block;
+  }
+
+  .site-header {
+    /* позиціонування для випадного меню */
+    --menu-pad: 16px;
+  }
+
+  .header-inner {
+    position: relative;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-width: none;
+    padding: 8px var(--menu-pad) 16px;
+    background: var(--bar);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .nav ul {
+    flex-direction: column;
+  }
+
+  .nav a {
+    padding: 14px 8px;
+    font-size: 15px;
+  }
+
+  .nav.is-open {
+    display: block;
+  }
+
+  .hero-inner,
+  .catalog,
+  .split,
+  .pdp,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-inner {
+    padding-block: 36px;
+  }
+
+  /* Фільтри над сіткою у вигляді компактної панелі */
+  .filters {
+    position: static;
+  }
+
+  .filters form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+    align-items: start;
+  }
+
+  .photo {
+    padding: 32px 48px 24px;
+  }
+
+  .photo--cover {
+    padding: 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Телефон ---------- */
+@media (max-width: 640px) {
+  .grid,
+  .grid--five {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .collections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefits {
+    grid-template-columns: 1fr;
+    padding-block: 40px;
+  }
+
+  .card-img {
+    padding: 14px 14px 8px;
+  }
+
+  .card-body {
+    padding: 12px 12px 14px;
+  }
+
+  .card h3 {
+    font-size: 15px;
+  }
+
+  .price {
+    font-size: 17px;
+  }
+
+  .row-2,
+  .filters form {
+    grid-template-columns: 1fr;
+  }
+
+  .line {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .line-sum {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .section {
+    padding-top: 44px;
+  }
+
+  .page {
+    padding-block: 28px 56px;
+  }
+
+  .photo {
+    padding: 24px;
+  }
+
+  .photo--cover,
+  .card-img--cover {
+    padding: 0;
+  }
+
+  .notes div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .section-head--center::before {
+    display: none;
+  }
+
+  .search-box {
+    flex-basis: 100%;
+  }
+}
